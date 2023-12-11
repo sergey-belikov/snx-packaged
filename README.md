@@ -44,8 +44,8 @@ sudo apt -y install ./snx-800010003_800010003-2_amd64.deb
 ```
 2. Copy `snx` config from template, write actual values for `server` and `username`:
 ```
-wget https://raw.githubusercontent.com/sergey-belikov/snx-packaged/800010003/.snxrc.example
-cp -v .snxrc.example ~/.snxrc
+wget https://raw.githubusercontent.com/sergey-belikov/snx-packaged/800010003/.snxrc.example && \
+cp -v .snxrc.example ~/.snxrc && \
 vim ~/.snxrc
 ```
 
@@ -92,13 +92,16 @@ Run script `./_test.all.sh` for run `snx usage` on matrix 'OS' - 'Version' - 'sn
 | Debian | NA | sid | debian:sid-slim |  |
 | Debian | NA | testing | debian:testing-slim |  |
 | Debian | 13 | Trixie | debian:trixie-slim |  |
-| Debian | 12 LTS | Bookworm | debian:bookworm-slim | Every day usage, "works for me" |
+| Debian | 12 LTS | Bookworm | debian:bookworm-slim |  |
 | Debian | 11 | Bullseye | debian:bullseye-slim |  |
 | Debian | 10 | Buster | debian:buster-slim |  |
-| ------ | ---------- | -------------- | ----------------- | ------- |
 | Ubuntu | 24.04 LTS | Noble Numbat | ubuntu:noble |  |
 | Ubuntu | 23.10 | Mantic Minotaur | ubuntu:mantic |  |
 | Ubuntu | 23.04 | Lunar Lobster | ubuntu:lunar |  |
 | Ubuntu | 22.04 LTS | Jammy Jellyfish | ubuntu:jammy |  |
 | Ubuntu | 20.04 LTS | Focal Fossa | ubuntu:focal |  |
 | Ubuntu | 18.04 LTS | Bionic Beaver |  ubuntu:bionic |  |
+
+I everyday use latest package (`snx` version 800010003) on Debian 12.4 (bookworm) - "works for me".
+
+**Have a lot of fun!**
