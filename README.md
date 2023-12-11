@@ -108,7 +108,9 @@ I everyday use latest package (`snx` version 800010003) on Debian 12.4 (bookworm
 # Usefull links
 
 1. "SSL Network Extender" https://support.checkpoint.com/results/sk/sk65210
+
 2023.12.11: "The current version of SSL Network Extender is **80008304**."
+
 Supported Operating Systems:
     - Ubuntu 16.04 - 22.04
     - CentOS 7.3 - 7.6
