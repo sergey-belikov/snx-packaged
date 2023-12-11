@@ -2,14 +2,62 @@
 
 Check Point's SSL Network eXtender (SNX) packaged into deb/rpm/etc.
 
-
 # Install
+## Debian / Ubuntu
 
-Install package - copy one `snx` version as binary file into `/usr/bin/snx.8000XXXXX`
+1. Install latest `snx` packaged version (800010003):
+```
+wget https://github.com/sergey-belikov/snx-packaged/releases/download/800010003.2/snx-800010003_800010003-2_amd64.deb && \
+sudo dpkg --add-architecture i386 && \
+sudo apt-get update && \
+sudo apt -y install ./snx-800010003_800010003-2_amd64.deb
+```
+2. Copy `snx` config from template, write actual values for `server` and `username`:
+```
+wget https://raw.githubusercontent.com/sergey-belikov/snx-packaged/master/.snxrc.example && \
+cp -v .snxrc.example ~/.snxrc && \
+vim ~/.snxrc
+```
+
+Or simple write your new config `~/.snxrc`:
+
+```
+cat << EOF > ~/.snxrc
+server vpn.gate.domain.name
+username your-vpn-username
+reauth yes
+EOF
+```
+
+3. Use `/usr/local/bin/snx`. For example:
+
+`snx usage`
+```
+a username or a certificate were not supplied
+Check Point's Linux SNX
+build 800010003
+usage: snx -s <server> {-u <user>|-c <certfile>} [-l <ca dir>] [-p <port>] [-r] [-g]
+                                run SNX using given arguments
+       snx -f <cf>              run the snx using configuration file
+       snx                      run the snx using the ~/.snxrc
+
+       snx -d                   disconnect a running SNX daemon
+
+        -s <server>           connect to server <server>
+        -u <user>             use the username <user>
+        -c <certfile>         use the certificate file <certfile>
+        -l <ca dir>           get trusted ca's from <ca dir>
+        -p <port>             connect using port <port>
+        -g                    enable debugging
+        -b                    run in backward compatability mode
+```
+## Package details
+
+'Install package' is equal to copy one `snx` version as binary file into `/usr/bin/snx.8000XXXXX`
  and make symbolic link '/usr/local/bin/snx' as auto-alternative for `snx`,
  with "all required dependencies" (i386 libs).
 
-Pakages **not crossed** with result from script `snx_install.sh` (`/usr/bin/snx`).
+Packages **not crossed** with file `/usr/bin/snx`, installed by original Check Points's script `snx_install.sh`.
 
 You may install many packages in one system. Example for all versions installed:
 ```
@@ -34,43 +82,13 @@ snx - auto mode
 /usr/bin/snx.800010003 - priority 10003
 ```
 
-## Debian / Ubuntu
+All `snx` ("packaged" and "original") equal use directories `/etc/snx/` and `/etc/snx/tmp/`.
 
-1. Install latest `snx` packaged version (800010003):
-```
-wget https://github.com/sergey-belikov/snx-packaged/releases/download/800010003/snx-800010003_800010003-2_amd64.deb && \
-sudo dpkg --add-architecture i386 && \
-sudo apt-get update && \
-sudo apt -y install ./snx-800010003_800010003-2_amd64.deb
-```
-2. Copy `snx` config from template, write actual values for `server` and `username`:
-```
-wget https://raw.githubusercontent.com/sergey-belikov/snx-packaged/800010003/.snxrc.example && \
-cp -v .snxrc.example ~/.snxrc && \
-vim ~/.snxrc
-```
+### **IMPORTANT!**
 
-3. Use `/usr/local/bin/snx` with:
-`snx usage`
-```
-a username or a certificate were not supplied
-Check Point's Linux SNX
-build 800010003
-usage: snx -s <server> {-u <user>|-c <certfile>} [-l <ca dir>] [-p <port>] [-r] [-g]
-                                run SNX using given arguments
-       snx -f <cf>              run the snx using configuration file
-       snx                      run the snx using the ~/.snxrc
+When you remove package via `apt purge ...` or equal command, you "delete configs" !
 
-       snx -d                   disconnect a running SNX daemon
-
-        -s <server>           connect to server <server>
-        -u <user>             use the username <user>
-        -c <certfile>         use the certificate file <certfile>
-        -l <ca dir>           get trusted ca's from <ca dir>
-        -p <port>             connect using port <port>
-        -g                    enable debugging
-        -b                    run in backward compatability mode
-```
+You lose all stored VPN gates root CA fingerprints !
 
 # Rebuild
 
