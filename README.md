@@ -38,7 +38,9 @@ snx - auto mode
 1. Install latest `snx` packaged version (800010003):
 ```
 wget https://github.com/sergey-belikov/snx-packaged/releases/download/800010003/snx-800010003_800010003-2_amd64.deb && \
-sudo dpkg --add-architecture i386 && apt-get update && apt -y install ./snx-800010003_800010003-2_amd64.deb
+sudo dpkg --add-architecture i386 && \
+sudo apt-get update && \
+sudo apt -y install ./snx-800010003_800010003-2_amd64.deb
 ```
 2. Copy `snx` config from template, write actual values for `server` and `username`:
 ```
