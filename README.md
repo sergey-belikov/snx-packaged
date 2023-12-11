@@ -112,15 +112,16 @@ I everyday use latest package (`snx` version 800010003) on Debian 12.4 (bookworm
 2023.12.11: "The current version of SSL Network Extender is **80008304**."
 
 Supported Operating Systems:
-    - Ubuntu 16.04 - 22.04
-    - CentOS 7.3 - 7.6
-    - RHEL 7.3 - 7.6
-    - Fedora 24 - 30
-    - openSUSE Leap 42.1, 42.2, 42.3, Leap 15, Leap 15.1
+- Ubuntu 16.04 - 22.04
+- CentOS 7.3 - 7.6
+- RHEL 7.3 - 7.6
+- Fedora 24 - 30
+- openSUSE Leap 42.1, 42.2, 42.3, Leap 15, Leap 15.1
 
 2. "Mobile Access Portal Agent Prerequisites for Linux" https://support.checkpoint.com/results/sk/sk119772
 
-3. `snx_install_linux30.sh` **800010003** from Check Point site (direct download link):
+3. `snx_install_linux30.sh` **800010003** from Check Point site https://support.checkpoint.com/results/download/22824
+Get file from direct download link:
 ```
 wget "https://dl3.checkpoint.com/paid/72/72c2c91791690927da0586ec873430cf/snx_install_linux30.sh?HashKey=1608304171_7ce1e383ff77a4ae39ceeb937d9be102&xtn=.sh -O snx_install_linux30.sh
 ```
