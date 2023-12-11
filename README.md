@@ -118,9 +118,13 @@ Supported Operating Systems:
 - Fedora 24 - 30
 - openSUSE Leap 42.1, 42.2, 42.3, Leap 15, Leap 15.1
 
-2. "Mobile Access Portal Agent Prerequisites for Linux" https://support.checkpoint.com/results/sk/sk119772
+2. "Mobile Access Portal Agent Prerequisites for Linux"
 
-3. `snx_install_linux30.sh` **800010003** from Check Point site https://support.checkpoint.com/results/download/22824
+https://support.checkpoint.com/results/sk/sk119772
+
+4. `snx_install_linux30.sh` **800010003** from Check Point site
+
+https://support.checkpoint.com/results/download/22824
 
 Get file from direct download link:
 ```
