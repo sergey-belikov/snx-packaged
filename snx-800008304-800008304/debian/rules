@@ -1,0 +1,26 @@
+#!/usr/bin/make -f
+export DH_VERBOSE = 0
+export DESTDIR = debian/snx-800008304/
+export SRC_FILE = bin/snx_install.sh
+export VERSION  = 800008304
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	# Extract only `snx` binary from attached tar.bz2 archive in install script
+	tail -n +$(shell awk -F= '/ARCHIVE_OFFSET/{print $$2} FNR==10{exit}' ${SRC_FILE}) ${SRC_FILE} | bunzip2 -c - | (cd $(CURDIR)/bin; tar xf - snx)
+
+override_dh_clean:
+	dh_clean
+	rm -f bin/snx bin/snx.$(VERSION)
+
+override_dh_auto_clean:
+	dh_auto_clean
+	rm -f bin/snx bin/snx.$(VERSION)
+
+override_dh_auto_install:
+	dh_auto_install
+	install -d -m0755 $(DESTDIR)usr/bin
+	install -p -m4511 $(CURDIR)/bin/snx $(DESTDIR)usr/bin/snx.$(VERSION)
+	install -d -m0700 $(DESTDIR)etc/snx/tmp

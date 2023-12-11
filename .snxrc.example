@@ -1,0 +1,3 @@
+server vpn.gate.domain.name
+username your-vpn-username
+reauth yes
