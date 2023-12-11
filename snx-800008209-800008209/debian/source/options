@@ -1,0 +1,4 @@
+tar-ignore='snx'
+tar-ignore='snx.*'
+extend-diff-ignore='snx'
+extend-diff-ignore='snx.*'
