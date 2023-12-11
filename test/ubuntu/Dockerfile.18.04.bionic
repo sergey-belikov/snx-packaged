@@ -1,4 +1,4 @@
-FROM debian:bookworm-slim
+FROM ubuntu:bionic
 
 RUN dpkg --add-architecture i386 && apt-get update
 # && apt-get -y install libc-bin gcc-multilib
@@ -12,8 +12,13 @@ RUN apt-get -y install /tmp/snx-800008209_800008209-1_amd64.deb
 RUN apt-get -y install /tmp/snx-800008304_800008304-1_amd64.deb
 RUN apt-get -y install /tmp/snx-800010003_800010003-1_amd64.deb
 
+# Use: docker build --build-arg BUILD_TIMESTAMP=$(date -uIs)
+ARG BUILD_TIMESTAMP
+LABEL BUILD_TIMESTAMP="$BUILD_TIMESTAMP"
+
 # Verify
 RUN echo -e "\n\nVerify:"; \
+    cat /etc/os-release; \
     echo -e "\nWhich 'snx': $(which snx)"; \
     echo -e "\nList binaries: "; ls -la /usr/bin/snx* /usr/local/bin/snx* /etc/alternatives/snx; \
     echo -e "\nAlternatives: "; update-alternatives --display snx; \

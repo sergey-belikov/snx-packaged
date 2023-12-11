@@ -4,7 +4,9 @@ Check Point's SSL Network eXtender (SNX) packaged into deb/rpm/etc.
 
 # Install
 
-Package install one `snx` version as binary file into `/usr/bin/snx.8000XXXXX` and make symbolic link '/usr/local/bin/snx' as auto-alternative for `snx`.
+Install package - copy one `snx` version as binary file into `/usr/bin/snx.8000XXXXX`
+ and make symbolic link '/usr/local/bin/snx' as auto-alternative for `snx`,
+ with "all required dependencies" (i386 libs).
 
 Pakages **not crossed** with result from script `snx_install.sh` (`/usr/bin/snx`).
 
@@ -35,8 +37,8 @@ snx - auto mode
 
 1. Install latest `snx` packaged version (800010003):
 ```
-wget https://github.com/sergey-belikov/snx-packaged/releases/download/800010003/snx-800010003_800010003-1_amd64.deb && \
-sudo dpkg --add-architecture i386 && apt-get update && apt -y install ./snx-800010003_800010003-1_amd64.deb
+wget https://github.com/sergey-belikov/snx-packaged/releases/download/800010003/snx-800010003_800010003-2_amd64.deb && \
+sudo dpkg --add-architecture i386 && apt-get update && apt -y install ./snx-800010003_800010003-2_amd64.deb
 ```
 2. Copy `snx` config from template, write actual values for `server` and `username`:
 ```
@@ -70,6 +72,8 @@ usage: snx -s <server> {-u <user>|-c <certfile>} [-l <ca dir>] [-p <port>] [-r] 
 # Rebuild
 
 Run script `./_rebuild_all_pkgs.sh` for rebuild all packages.
+
+All builded packages in directory `./dist`.
 
 # Test
 
