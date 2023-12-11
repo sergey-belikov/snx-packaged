@@ -121,6 +121,7 @@ Supported Operating Systems:
 2. "Mobile Access Portal Agent Prerequisites for Linux" https://support.checkpoint.com/results/sk/sk119772
 
 3. `snx_install_linux30.sh` **800010003** from Check Point site https://support.checkpoint.com/results/download/22824
+
 Get file from direct download link:
 ```
 wget "https://dl3.checkpoint.com/paid/72/72c2c91791690927da0586ec873430cf/snx_install_linux30.sh?HashKey=1608304171_7ce1e383ff77a4ae39ceeb937d9be102&xtn=.sh -O snx_install_linux30.sh
