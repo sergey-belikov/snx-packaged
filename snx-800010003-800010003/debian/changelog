@@ -1,3 +1,9 @@
+snx-800010003 (800010003-2) stable; urgency=medium
+
+  * Relaxed requirements for 'libc6' for installation on early Debian/Ubuntu.
+
+ -- Sergey Y. Belikov <sergey.y.belikov@gmail.com>  Mon, 11 Dec 2023 15:51:00 +0600
+
 snx-800010003 (800010003-1) stable; urgency=medium
 
   * Initial release. First packaged upstream version.
@@ -5,4 +11,3 @@ snx-800010003 (800010003-1) stable; urgency=medium
     `wget "https://dl3.checkpoint.com/paid/72/72c2c91791690927da0586ec873430cf/snx_install_linux30.sh?HashKey=1608304171_7ce1e383ff77a4ae39ceeb937d9be102&xtn=.sh" -O snx_install_linux30.sh`
 
  -- Sergey Y. Belikov <sergey.y.belikov@gmail.com>  Sun, 10 Dec 2023 14:00:00 +0600
-

@@ -10,7 +10,3 @@ do
     cd ..
     mv -f ${pkg}_* ./dist/
 done
-
-docker build -t snx:test -f Dockerfile.bookworm-slim .
-docker images snx:test
-# docker run --rm -it --entrypoint=/bin/bash snx:test

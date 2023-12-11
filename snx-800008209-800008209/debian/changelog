@@ -1,7 +1,12 @@
+snx-800008209 (800008209-2) stable; urgency=medium
+
+  * Relaxed requirements for 'libc6' for installation on early Debian/Ubuntu.
+
+ -- Sergey Y. Belikov <sergey.y.belikov@gmail.com>  Mon, 11 Dec 2023 15:51:00 +0600
+
 snx-800008209 (800008209-1) stable; urgency=medium
 
   * Initial release. First packaged upstream version.
   * Downloaded from VPN Gate: `wget "https://your.vpn.server/SNX/INSTALL/snx_install.sh" -O snx_install.sh`
 
  -- Sergey Y. Belikov <sergey.y.belikov@gmail.com>  Sun, 10 Dec 2023 14:00:00 +0600
-

@@ -12,7 +12,7 @@ Provides: snx
 Section: non-free/net
 Priority: optional
 Architecture: amd64
-Depends: ${shlibs:Depends}
+Depends: libc6 (>= 2.27), libpam0g (>= 0.99.7.1), libstdc++5 (>= 1:3.3.6-15),
          , libx11-6:i386, libpam0g:i386, libstdc++5:i386
          , libnss3-tools, openssl, xterm
 Description: Check Point SSL Network Extender (SNX) is a thin VPN client
