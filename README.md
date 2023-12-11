@@ -2,6 +2,7 @@
 
 Check Point's SSL Network eXtender (SNX) packaged into deb/rpm/etc.
 
+
 # Install
 
 Install package - copy one `snx` version as binary file into `/usr/bin/snx.8000XXXXX`
@@ -103,5 +104,28 @@ Run script `./_test.all.sh` for run `snx usage` on matrix 'OS' - 'Version' - 'sn
 | Ubuntu | 18.04 LTS | Bionic Beaver |  ubuntu:bionic |  |
 
 I everyday use latest package (`snx` version 800010003) on Debian 12.4 (bookworm) - "works for me".
+
+# Usefull links
+
+1. "SSL Network Extender" https://support.checkpoint.com/results/sk/sk65210
+2023.12.11: "The current version of SSL Network Extender is **80008304**."
+Supported Operating Systems:
+    - Ubuntu 16.04 - 22.04
+    - CentOS 7.3 - 7.6
+    - RHEL 7.3 - 7.6
+    - Fedora 24 - 30
+    - openSUSE Leap 42.1, 42.2, 42.3, Leap 15, Leap 15.1
+
+2. "Mobile Access Portal Agent Prerequisites for Linux" https://support.checkpoint.com/results/sk/sk119772
+
+3. `snx_install_linux30.sh` **800010003** from Check Point site (direct download link):
+```
+wget "https://dl3.checkpoint.com/paid/72/72c2c91791690927da0586ec873430cf/snx_install_linux30.sh?HashKey=1608304171_7ce1e383ff77a4ae39ceeb937d9be102&xtn=.sh -O snx_install_linux30.sh
+```
+
+4. `snx_install.sh` **800008304**, or "compatible version for your VPN Gateway server":
+```
+wget "https://your.vpn.server/SNX/INSTALL/snx_install.sh" -O snx_install.sh
+```
 
 **Have a lot of fun!**
