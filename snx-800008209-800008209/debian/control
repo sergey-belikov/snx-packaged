@@ -4,8 +4,8 @@ Priority: optional
 Maintainer: Sergey Y. Belikov <sergey.y.belikov@gmail.com>
 Build-Depends:  debhelper (>= 10)
 Standards-Version: 3.9.4
-Vcs-Git: https://github.com/sergey-belikov/snx -b master
-Homepage: https://github.com/sergey-belikov/snx
+Vcs-Git: https://github.com/sergey-belikov/snx-packaged -b master
+Homepage: https://github.com/sergey-belikov/snx-packaged
 
 Package: snx-800008209
 Provides: snx
@@ -26,4 +26,4 @@ Description: Check Point SSL Network Extender (SNX) is a thin VPN client
  See:
  - "SSL Network Extender" https://support.checkpoint.com/results/sk/sk65210
  - "Mobile Access Portal Agent Prerequisites for Linux" https://support.checkpoint.com/results/sk/sk119772
-Homepage: https://github.com/sergey-belikov/snx
+Homepage: https://github.com/sergey-belikov/snx-packaged
