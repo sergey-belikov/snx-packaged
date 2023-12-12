@@ -16,7 +16,7 @@ sudo apt -y install ./snx-800010003_800010003-2_amd64.deb
 ```
 wget https://raw.githubusercontent.com/sergey-belikov/snx-packaged/master/.snxrc.example && \
 cp -v .snxrc.example ~/.snxrc && \
-chmod -m 600 ~/.snxrc && \
+chmod -m 0600 ~/.snxrc && \
 vim ~/.snxrc
 ```
 
@@ -28,7 +28,7 @@ server vpn.gate.domain.name
 username your-vpn-username
 reauth yes
 EOF
-chmod -m 600 ~/.snxrc
+chmod -m 0600 ~/.snxrc
 ```
 
 3. Use `/usr/local/bin/snx`. For example:
