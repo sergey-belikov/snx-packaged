@@ -27,7 +27,6 @@ do
     tag="${str[1]}"
     os="${str[2]}"
     version="${str[3]}"
-#    dfile="${str[4]}"
     dockerfile="test/${os}/Dockerfile.${version}.${tag}"
     echo -e "\n==== ${image}:${tag} (${dockerfile})"
     echo "FROM ${os}:${tag}" > ${dockerfile}
