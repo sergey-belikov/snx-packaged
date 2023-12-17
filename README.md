@@ -2,7 +2,7 @@
 
 Check Point's SSL Network eXtender (SNX) packaged into deb/rpm/etc.
 
-# Install
+# Installation
 ## Debian / Ubuntu
 
 1. Install latest `snx` packaged version (800010003):
@@ -20,7 +20,7 @@ chmod -m 0600 ~/.snxrc && \
 vim ~/.snxrc
 ```
 
-Or simple write your new config `~/.snxrc`:
+Or simply write your new config `~/.snxrc`:
 
 ```
 cat << EOF > ~/.snxrc
@@ -31,7 +31,7 @@ EOF
 chmod -m 0600 ~/.snxrc
 ```
 
-3. Use `/usr/local/bin/snx`. For example:
+3. Run `/usr/local/bin/snx`. For example:
 
 `snx usage`
 ```
@@ -59,9 +59,9 @@ usage: snx -s <server> {-u <user>|-c <certfile>} [-l <ca dir>] [-p <port>] [-r] 
  and make symbolic link '/usr/local/bin/snx' as auto-alternative for `snx`,
  with "all required dependencies" (i386 libs).
 
-Packages **not crossed** with file `/usr/bin/snx`, installed by original Check Points's script `snx_install.sh`.
+Package **doesn't touch** file `/usr/bin/snx` installed by original Check Points's script `snx_install.sh`.
 
-You may install many packages in one system. Example for all versions installed:
+You may install multiple packages simultaneously and pick required version via alternatives:
 ```
 $ which snx
 /usr/local/bin/snx
@@ -88,21 +88,21 @@ All `snx` ("packaged" and "original") equal use directories `/etc/snx/` and `/et
 
 ### **IMPORTANT!**
 
-When you remove package via `apt purge ...` or equal command, you "delete configs" !
+Removing package with `apt purge ...` removes all package configs!
 
-You lose all stored VPN gates root CA fingerprints !
+You will lose all your stored VPN gates root CA fingerprints!
 
-# Rebuild
+# Building
 
-Run script `./_rebuild_all_pkgs.sh` for rebuild all packages.
+Run script `./_rebuild_all_pkgs.sh` to rebuild all packages.
 
-All builded packages in directory `./dist`.
+All built packages in directory `./dist`.
 
-# Test
+# Testing
 
-**! Only after local rebuild all packages !**
+**! Only run these after building all packages !**
 
-Run script `./_test.all.sh` for run `snx usage` on matrix 'OS' - 'Version' - 'snx'.
+Run script `./_test.all.sh` to run `snx usage` on matrix 'OS' - 'Version' - 'snx'.
 
 "Checked" = create Docker container and successfull run `snx usage`. Not more, not less.
 
@@ -123,9 +123,9 @@ Run script `./_test.all.sh` for run `snx usage` on matrix 'OS' - 'Version' - 'sn
 | Ubuntu | 20.04 LTS | Focal Fossa | ubuntu:focal |  |
 | Ubuntu | 18.04 LTS | Bionic Beaver |  ubuntu:bionic |  |
 
-I everyday use latest package (`snx` version 800010003) on Debian 12.4 (bookworm) - "works for me".
+I use latest package (`snx` version 800010003) on Debian 12.4 (bookworm).
 
-# Usefull links
+# Useful links
 
 1. "SSL Network Extender" https://support.checkpoint.com/results/sk/sk65210
 
@@ -144,7 +144,7 @@ Supported Operating Systems:
 
 https://support.checkpoint.com/results/download/22824
 
-Get file from direct download link:
+Get file here:
 ```
 wget "https://dl3.checkpoint.com/paid/72/72c2c91791690927da0586ec873430cf/snx_install_linux30.sh?HashKey=1608304171_7ce1e383ff77a4ae39ceeb937d9be102&xtn=.sh" -O snx_install_linux30.sh
 ```
@@ -154,4 +154,4 @@ wget "https://dl3.checkpoint.com/paid/72/72c2c91791690927da0586ec873430cf/snx_in
 wget "https://your.vpn.server/SNX/INSTALL/snx_install.sh" -O snx_install.sh
 ```
 
-**Have a lot of fun!**
+**Have fun!**
