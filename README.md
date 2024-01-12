@@ -16,7 +16,7 @@ sudo apt -y install ./snx-800010003_800010003-2_amd64.deb
 ```
 wget https://raw.githubusercontent.com/sergey-belikov/snx-packaged/master/.snxrc.example && \
 cp -v .snxrc.example ~/.snxrc && \
-chmod -m 0600 ~/.snxrc && \
+chmod 0600 ~/.snxrc && \
 vim ~/.snxrc
 ```
 
@@ -28,7 +28,7 @@ server vpn.gate.domain.name
 username your-vpn-username
 reauth yes
 EOF
-chmod -m 0600 ~/.snxrc
+chmod 0600 ~/.snxrc
 ```
 
 3. Run `/usr/local/bin/snx`. For example:
@@ -55,8 +55,8 @@ usage: snx -s <server> {-u <user>|-c <certfile>} [-l <ca dir>] [-p <port>] [-r] 
 ```
 ## Package details
 
-'Install package' is equal to copy one `snx` version as binary file into `/usr/bin/snx.8000XXXXX`
- and make symbolic link '/usr/local/bin/snx' as auto-alternative for `snx`,
+"Install package" is equal to copy one `snx` version as binary file into `/usr/bin/snx.8000XXXXX`
+ and make symbolic link `/usr/local/bin/snx` as auto-alternative for `snx`,
  with "all required dependencies" (i386 libs).
 
 Package **doesn't touch** file `/usr/bin/snx` installed by original Check Points's script `snx_install.sh`.
