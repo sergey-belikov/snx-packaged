@@ -1,7 +1,7 @@
 #!/usr//bin/env bash
 mkdir -m0755 dist
 
-for pkg in "snx-800008209" "snx-800008304" "snx-800010003"
+for pkg in "snx-800008209" "snx-800008304" "snx-800008407" "snx-800010003"
 do
     echo -e "\n\n======== Build package: ${pkg} ========"
     pkg_dir=$(echo $pkg | awk -F- '{print $1"-"$2"-"$2}')

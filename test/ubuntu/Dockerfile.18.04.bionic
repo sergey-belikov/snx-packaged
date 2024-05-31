@@ -1,25 +1,44 @@
 FROM ubuntu:bionic
 
-RUN dpkg --add-architecture i386 && apt-get update
-# && apt-get -y install libc-bin gcc-multilib
-# Use `ldd /usr/bin/snx.800010003` for check list of dynamically linked library
-
-ADD dist/snx-800008209_800008209-1_amd64.deb /tmp/
-ADD dist/snx-800008304_800008304-1_amd64.deb /tmp/
-ADD dist/snx-800010003_800010003-1_amd64.deb /tmp/
-
-RUN apt-get -y install /tmp/snx-800008209_800008209-1_amd64.deb
-RUN apt-get -y install /tmp/snx-800008304_800008304-1_amd64.deb
-RUN apt-get -y install /tmp/snx-800010003_800010003-1_amd64.deb
-
 # Use: docker build --build-arg BUILD_TIMESTAMP=$(date -uIs)
 ARG BUILD_TIMESTAMP
 LABEL BUILD_TIMESTAMP="$BUILD_TIMESTAMP"
 
-# Verify
-RUN echo -e "\n\nVerify:"; \
-    cat /etc/os-release; \
+ENV DEBIAN_FRONTEND=noninteractive
+RUN dpkg --add-architecture i386 && apt-get update
+# && apt-get install -y libc-bin gcc-multilib
+# Use `ldd /usr/bin/snx.800010003` for check list of dynamically linked library
+
+ADD dist/snx-800008209_800008209-2_amd64.deb /tmp/
+ADD dist/snx-800008304_800008304-2_amd64.deb /tmp/
+ADD dist/snx-800008407_800008407-2_amd64.deb /tmp/
+ADD dist/snx-800010003_800010003-2_amd64.deb /tmp/
+
+# Check install
+RUN apt-get install -y --no-install-recommends /tmp/snx-800008209_800008209-2_amd64.deb
+RUN apt-get install -y --no-install-recommends /tmp/snx-800008304_800008304-2_amd64.deb
+RUN apt-get install -y --no-install-recommends /tmp/snx-800008407_800008407-2_amd64.deb
+RUN apt-get install -y --no-install-recommends /tmp/snx-800010003_800010003-2_amd64.deb
+
+# Verify all
+RUN echo -e "\n\nVerify all:"; \
+    cat /etc/os-release | grep -e _URL; \
     echo -e "\nWhich 'snx': $(which snx)"; \
     echo -e "\nList binaries: "; ls -la /usr/bin/snx* /usr/local/bin/snx* /etc/alternatives/snx; \
     echo -e "\nAlternatives: "; update-alternatives --display snx; \
-    echo -e "\nUsage:"; snx usage
+    echo -e "\nCheck 'snx':"; snx -h
+
+# Verify each
+RUN echo -e "\n\nVerify each version:" && \
+    echo -e "\nCheck '/usr/bin/snx.800008209':"; /usr/bin/snx.800008209 -h
+RUN echo -e "\nCheck '/usr/bin/snx.800008304':"; /usr/bin/snx.800008304 -h
+RUN echo -e "\nCheck '/usr/bin/snx.800008407':"; /usr/bin/snx.800008407 -h
+RUN echo -e "\nCheck '/usr/bin/snx.800010003':"; /usr/bin/snx.800010003 -h
+
+# Check uninstall
+RUN apt-get remove -y snx-800010003
+RUN apt-get remove -y snx-800008407
+RUN apt-get remove -y snx-800008304
+RUN apt-get remove -y snx-800008209
+RUN apt-get autoremove -y; \
+    rm -rf /var/lib/apt/lists/*

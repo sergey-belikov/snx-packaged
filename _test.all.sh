@@ -35,6 +35,7 @@ do
     docker build -t ${image}:${tag} --build-arg BUILD_TIMESTAMP=$(date -uIs) -f ${cdir}/${dockerfile} .
     res=$?
     echo "== Result: ${image}:${tag} (${os}.${version}) = ${res}"
+    docker rmi ${image}:${tag}
 done <<< $list
 ) 2>&1 | tee _test.all.log
 echo ""

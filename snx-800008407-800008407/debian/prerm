@@ -1,0 +1,3 @@
+#!/bin/sh
+
+update-alternatives --remove snx /usr/bin/snx.800008407

@@ -19,4 +19,4 @@ cat /etc/os-release; \
 echo -e "\nWhich 'snx': $(which snx)"; \
 echo -e "\nList binaries: "; ls -la /usr/bin/snx* /usr/local/bin/snx* /etc/alternatives/snx; \
 echo -e "\nAlternatives: "; update-alternatives --display snx; \
-echo -e "\nUsage:"; snx usage
+echo -e "\nUsage 'snx':"; snx -h

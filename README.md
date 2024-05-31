@@ -33,9 +33,8 @@ chmod 0600 ~/.snxrc
 
 3. Run `/usr/local/bin/snx`. For example:
 
-`snx usage`
+`snx -h`
 ```
-a username or a certificate were not supplied
 Check Point's Linux SNX
 build 800010003
 usage: snx -s <server> {-u <user>|-c <certfile>} [-l <ca dir>] [-p <port>] [-r] [-g]
@@ -70,6 +69,7 @@ $ ls -la /usr/bin/snx* /usr/local/bin/snx* /etc/alternatives/snx
 lrwxrwxrwx 1 root root      22 Dec 11 07:31 /etc/alternatives/snx -> /usr/bin/snx.800010003
 -r-s--x--x 1 root root 4123948 Dec 10 08:00 /usr/bin/snx.800008209
 -r-s--x--x 1 root root 4124396 Dec 10 08:00 /usr/bin/snx.800008304
+-r-s--x--x 1 root root 9079808 May 31 13:40 /usr/bin/snx.800008407
 -r-s--x--x 1 root root 4143464 Dec 10 08:00 /usr/bin/snx.800010003
 lrwxrwxrwx 1 root root      21 Dec 11 07:31 /usr/local/bin/snx -> /etc/alternatives/snx
 
@@ -81,6 +81,7 @@ snx - auto mode
   link snx is /usr/local/bin/snx
 /usr/bin/snx.800008209 - priority 8209
 /usr/bin/snx.800008304 - priority 8304
+/usr/bin/snx.800008407 - priority 8407
 /usr/bin/snx.800010003 - priority 10003
 ```
 
@@ -102,9 +103,9 @@ All built packages in directory `./dist`.
 
 **! Only run these after building all packages !**
 
-Run script `./_test.all.sh` to run `snx usage` on matrix 'OS' - 'Version' - 'snx'.
+Run script `./_test.all.sh` to run `snx -h` on matrix 'OS' - 'Version' - 'snx'.
 
-"Checked" = create Docker container and successfull run `snx usage`. Not more, not less.
+"Checked" = create Docker container and successfull run `snx -h`. Not more, not less.
 
 "Checked" on next Docker base images:
 
@@ -129,16 +130,29 @@ I use latest package (`snx` version 800010003) on Debian 12.4 (bookworm).
 
 1. "SSL Network Extender" https://support.checkpoint.com/results/sk/sk65210
 
-2023.12.11: "The current version of SSL Network Extender is **80008304**."
+This SK article was moved to "SSL Network Extender (SNX) Administration Guide" https://sc1.checkpoint.com/documents/SSL_Network_Extender_AdminGuide/Content/Topics-SNX-Admin-Guide/SNX-Versions-and-Requirements.htm
 
-Supported Operating Systems:
+2024.05.31: "The latest version of SNX is **80008407**."
+
+Supported Linux Operating Systems for **80008407**:
+- Ubuntu 16.04 - 23.10
+- CentOS 8 - 9
+- RHEL 8 - 9.3
+- Fedora 24 - 39
+- openSUSE Leap 42.1, 42.2, 42.3, Leap 15 - 15.5
+
+Supported Linux Operating Systems for **80008304**:
 - Ubuntu 16.04 - 22.04
 - CentOS 7.3 - 7.6
 - RHEL 7.3 - 7.6
 - Fedora 24 - 30
 - openSUSE Leap 42.1, 42.2, 42.3, Leap 15, Leap 15.1
 
-2. "Mobile Access Portal Agent Prerequisites for Linux" https://support.checkpoint.com/results/sk/sk119772
+2. "Using SSL Network Extender on Linux / macOS Operating Systems" https://sc1.checkpoint.com/documents/SSL_Network_Extender_AdminGuide/Content/Topics-SNX-Admin-Guide/SNX-for-RA-Linux-and-macOS.htm?tocpath=SSL%20Network%20Extender%20(SNX)%20for%20Remote%20Access%20VPN
+
+Note - You can configure proxy server only in the configuration file and not directly from the command line.
+
+3. "Mobile Access Portal Agent Prerequisites for Linux" https://support.checkpoint.com/results/sk/sk119772
 
 4. `snx_install_linux30.sh` **800010003** from Check Point site
 
@@ -149,7 +163,7 @@ Get file here:
 wget "https://dl3.checkpoint.com/paid/72/72c2c91791690927da0586ec873430cf/snx_install_linux30.sh?HashKey=1608304171_7ce1e383ff77a4ae39ceeb937d9be102&xtn=.sh" -O snx_install_linux30.sh
 ```
 
-4. `snx_install.sh` **800008304**, or "compatible version for your VPN Gateway server":
+5. `snx_install.sh` **800008407**, or "compatible version for your VPN Gateway server":
 ```
 wget "https://your.vpn.server/SNX/INSTALL/snx_install.sh" -O snx_install.sh
 ```
