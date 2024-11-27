@@ -7,7 +7,7 @@ Check Point's SSL Network eXtender (SNX) packaged into deb/rpm/etc.
 
 1. Install latest `snx` packaged version (800010003):
 ```
-wget https://github.com/sergey-belikov/snx-packaged/releases/download/800010003.2/snx-800010003_800010003-2_amd64.deb && \
+wget https://github.com/sergey-belikov/snx-packaged/releases/download/800010003-2/snx-800010003_800010003-2_amd64.deb && \
 sudo dpkg --add-architecture i386 && \
 sudo apt-get update && \
 sudo apt -y install ./snx-800010003_800010003-2_amd64.deb
