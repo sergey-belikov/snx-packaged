@@ -7,7 +7,7 @@ LABEL BUILD_TIMESTAMP="$BUILD_TIMESTAMP"
 ENV DEBIAN_FRONTEND=noninteractive
 RUN dpkg --add-architecture i386 && apt-get update
 # && apt-get install -y libc-bin gcc-multilib
-# Use `ldd /usr/bin/snx.800008407` for check list of dynamically linked library
+# Use `ldd /usr/bin/snx.800008409` for check list of dynamically linked library
 
 COPY --link dist/snx-*_amd64.deb /dist/
 
@@ -15,6 +15,7 @@ COPY --link dist/snx-*_amd64.deb /dist/
 RUN apt-get install -y --no-install-recommends /dist/snx-800008209_800008209-2_amd64.deb
 RUN apt-get install -y --no-install-recommends /dist/snx-800008304_800008304-2_amd64.deb
 RUN apt-get install -y --no-install-recommends /dist/snx-800008407_800008407-2_amd64.deb
+RUN apt-get install -y --no-install-recommends /dist/snx-800008409_800008409-1_amd64.deb
 RUN apt-get install -y --no-install-recommends /dist/snx-800010003_800010003-2_amd64.deb
 
 # Verify all
@@ -30,10 +31,12 @@ RUN echo -e "\n\nVerify each version:" && \
     echo -e "\nCheck '/usr/bin/snx.800008209':"; /usr/bin/snx.800008209 -h
 RUN echo -e "\nCheck '/usr/bin/snx.800008304':"; /usr/bin/snx.800008304 -h
 RUN echo -e "\nCheck '/usr/bin/snx.800008407':"; /usr/bin/snx.800008407 -h
+RUN echo -e "\nCheck '/usr/bin/snx.800008409':"; /usr/bin/snx.800008409 -h
 RUN echo -e "\nCheck '/usr/bin/snx.800010003':"; /usr/bin/snx.800010003 -h
 
 # Check uninstall
 RUN apt-get remove -y snx-800010003
+RUN apt-get remove -y snx-800008409
 RUN apt-get remove -y snx-800008407
 RUN apt-get remove -y snx-800008304
 RUN apt-get remove -y snx-800008209

@@ -1,0 +1,6 @@
+snx-800008409 (800008409-1) stable; urgency=medium
+
+  * Initial release. First packaged upstream version.
+  * Downloaded from VPN Gate: `wget "https://your.vpn.server/SNX/INSTALL/snx_install.sh" -O snx_install.sh`
+
+ -- Sergey Y. Belikov <sergey.y.belikov@gmail.com>  Sat, 08 Mar 2025 14:50:00 +0600

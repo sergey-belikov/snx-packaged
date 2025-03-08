@@ -7,10 +7,10 @@ Check Point's SSL Network eXtender (SNX) packaged into deb/rpm/etc.
 
 1. Install latest `snx` packaged version (800008407):
 ```
-wget https://github.com/sergey-belikov/snx-packaged/releases/download/800008407-2/snx-800008407_800008407-2_amd64.deb && \
+wget https://github.com/sergey-belikov/snx-packaged/releases/download/800008409-1/snx-800008409_800008409-1_amd64.deb && \
 sudo dpkg --add-architecture i386 && \
 sudo apt-get update && \
-sudo apt -y install ./snx-800008407_800008407-2_amd64.deb
+sudo apt -y install ./snx-800008409_800008409-1_amd64.deb
 ```
 2. Copy `snx` config from template, write actual values for `server` and `username`:
 ```
@@ -36,7 +36,7 @@ chmod 0600 ~/.snxrc
 `snx -h`
 ```
 Check Point's Linux SNX
-build 800008407
+build 800008409
 usage: snx -s <server> {-u <user>|-c <certfile>} [-l <ca dir>] [-p <port>] [-r] [-g]
                                 run SNX using given arguments
        snx -f <cf>              run the snx using configuration file
@@ -65,27 +65,29 @@ $ which snx
 /usr/local/bin/snx
 
 $ ls -la /usr/bin/snx* /usr/local/bin/snx* /etc/alternatives/snx
-lrwxrwxrwx 1 root root      22 Mar  3 13:46 /etc/alternatives/snx -> /usr/bin/snx.800008407
+lrwxrwxrwx 1 root root      22 Mar  8 14:50 /etc/alternatives/snx -> /usr/bin/snx.800008409
 -r-s--x--x 1 root root 4123948 Dec 11  2023 /usr/bin/snx.800008209
 -r-s--x--x 1 root root 4124396 Dec 11  2023 /usr/bin/snx.800008304
 -r-s--x--x 1 root root 9079808 May 31  2024 /usr/bin/snx.800008407
+-r-s--x--x 1 root root 9088992 Mar  8 14:50 /usr/bin/snx.800008409
 lrwxrwxrwx 1 root root      21 Dec 11  2023 /usr/local/bin/snx -> /etc/alternatives/snx
 
 $ update-alternatives --display snx
 snx - auto mode
-  link best version is /usr/bin/snx.800008407
-  link currently points to /usr/bin/snx.800008407
+  link best version is /usr/bin/snx.800008409
+  link currently points to /usr/bin/snx.800008409
   link snx is /usr/local/bin/snx
 /usr/bin/snx.800008209 - priority 8209
 /usr/bin/snx.800008304 - priority 8304
 /usr/bin/snx.800008407 - priority 8407
+/usr/bin/snx.800008409 - priority 8409
 ```
 
 All `snx` ("packaged" and "original") equal use directories `/etc/snx/` and `/etc/snx/tmp/`.
 
 ### **IMPORTANT!**
 
-Removing package with `apt purge ...` removes all package configs!
+Removing a last package with `apt purge ...` removes all package configs!
 
 You will lose all your stored VPN gates root CA fingerprints!
 
@@ -118,9 +120,7 @@ Run script `./_test.all.sh` to run `snx -h` on matrix 'OS' - 'Version' - 'snx'.
 | Ubuntu | 20.04 LTS | Focal Fossa | ubuntu:focal |  |
 | Ubuntu | 18.04 LTS | Bionic Beaver |  ubuntu:bionic |  |
 
-~~I use latest package (`snx` version 800010003) on Debian 12.4 (bookworm).~~
-
-2025.03.03: I use package (`snx` version **800008407**) on Debian 12.9 (bookworm).
+2025.03.08: I use package (`snx` version **800008409**) on Debian 12.9 (bookworm).
 
 # Useful links
 
@@ -128,9 +128,9 @@ Run script `./_test.all.sh` to run `snx -h` on matrix 'OS' - 'Version' - 'snx'.
 
 This SK article was moved to "SSL Network Extender (SNX) Administration Guide" https://sc1.checkpoint.com/documents/SSL_Network_Extender_AdminGuide/Content/Topics-SNX-Admin-Guide/SNX-Versions-and-Requirements.htm
 
-2024.05.31: "The latest version of SNX is **80008407**."
+2024.12.25: "The latest version of SNX is **80008409**."
 
-Supported Linux Operating Systems for **80008407**:
+Supported Linux Operating Systems for **80008409** (80008407):
 - Ubuntu 16.04 - 23.10
 - CentOS 8 - 9
 - RHEL 8 - 9.3
@@ -159,7 +159,7 @@ Get file here:
 wget "https://dl3.checkpoint.com/paid/72/72c2c91791690927da0586ec873430cf/snx_install_linux30.sh?HashKey=1608304171_7ce1e383ff77a4ae39ceeb937d9be102&xtn=.sh" -O snx_install_linux30.sh
 ```
 
-5. `snx_install.sh` **800008407**, or "compatible version for your VPN Gateway server":
+5. `snx_install.sh` **800008409**, or "compatible version for your VPN Gateway server":
 ```
 wget "https://your.vpn.server/SNX/INSTALL/snx_install.sh" -O snx_install.sh
 ```

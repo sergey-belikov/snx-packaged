@@ -1,0 +1,29 @@
+Source: snx-800008409
+Section: non-free/net
+Priority: optional
+Maintainer: Sergey Y. Belikov <sergey.y.belikov@gmail.com>
+Build-Depends:  debhelper (>= 10)
+Standards-Version: 3.9.4
+Vcs-Git: https://github.com/sergey-belikov/snx-packaged -b master
+Homepage: https://github.com/sergey-belikov/snx-packaged
+
+Package: snx-800008409
+Provides: snx
+Section: non-free/net
+Priority: optional
+Architecture: amd64
+Depends: libc6 (>= 2.27), libpam0g (>= 0.99.7.1),
+         , libx11-6:i386, libpam0g:i386, libstdc++6:i386
+         , libnss3-tools, openssl, xterm, bzip2
+Description: Check Point SSL Network Extender (SNX) is a thin VPN client
+ Check Point SSL Network Extender (SNX) is a thin VPN client installed on an endpoint user computer.
+ SSL Network Extender provides secure remote access to a corporate network.
+ It can be used with Mobile Access blade or the IPsec VPN blade via the Mobile Access or SNX portals based on.
+ In the case of an IPsec VPN blade, it is possible to use SSL Network Extender as a CLI application.
+ .
+ Remote users access the portal from a Web browser using URL defined by system administrator of their organization.
+ .
+ See:
+ - "SSL Network Extender" https://support.checkpoint.com/results/sk/sk65210
+ - "Mobile Access Portal Agent Prerequisites for Linux" https://support.checkpoint.com/results/sk/sk119772
+Homepage: https://github.com/sergey-belikov/snx-packaged
