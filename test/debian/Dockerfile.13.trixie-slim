@@ -7,22 +7,19 @@ LABEL BUILD_TIMESTAMP="$BUILD_TIMESTAMP"
 ENV DEBIAN_FRONTEND=noninteractive
 RUN dpkg --add-architecture i386 && apt-get update
 # && apt-get install -y libc-bin gcc-multilib
-# Use `ldd /usr/bin/snx.800010003` for check list of dynamically linked library
+# Use `ldd /usr/bin/snx.800008407` for check list of dynamically linked library
 
-ADD dist/snx-800008209_800008209-2_amd64.deb /tmp/
-ADD dist/snx-800008304_800008304-2_amd64.deb /tmp/
-ADD dist/snx-800008407_800008407-2_amd64.deb /tmp/
-ADD dist/snx-800010003_800010003-2_amd64.deb /tmp/
+COPY --link dist/snx-*_amd64.deb /dist/
 
 # Check install
-RUN apt-get install -y --no-install-recommends /tmp/snx-800008209_800008209-2_amd64.deb
-RUN apt-get install -y --no-install-recommends /tmp/snx-800008304_800008304-2_amd64.deb
-RUN apt-get install -y --no-install-recommends /tmp/snx-800008407_800008407-2_amd64.deb
-RUN apt-get install -y --no-install-recommends /tmp/snx-800010003_800010003-2_amd64.deb
+RUN apt-get install -y --no-install-recommends /dist/snx-800008209_800008209-2_amd64.deb
+RUN apt-get install -y --no-install-recommends /dist/snx-800008304_800008304-2_amd64.deb
+RUN apt-get install -y --no-install-recommends /dist/snx-800008407_800008407-2_amd64.deb
+RUN apt-get install -y --no-install-recommends /dist/snx-800010003_800010003-2_amd64.deb
 
 # Verify all
 RUN echo -e "\n\nVerify all:"; \
-    cat /etc/os-release | grep -e _URL; \
+    cat /etc/os-release | grep -v _URL; \
     echo -e "\nWhich 'snx': $(which snx)"; \
     echo -e "\nList binaries: "; ls -la /usr/bin/snx* /usr/local/bin/snx* /etc/alternatives/snx; \
     echo -e "\nAlternatives: "; update-alternatives --display snx; \

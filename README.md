@@ -5,7 +5,7 @@ Check Point's SSL Network eXtender (SNX) packaged into deb/rpm/etc.
 # Installation
 ## Debian / Ubuntu
 
-1. Install latest `snx` packaged version (800010003):
+1. Install latest `snx` packaged version (800008407):
 ```
 wget https://github.com/sergey-belikov/snx-packaged/releases/download/800008407-2/snx-800008407_800008407-2_amd64.deb && \
 sudo dpkg --add-architecture i386 && \
@@ -114,8 +114,6 @@ Run script `./_test.all.sh` to run `snx -h` on matrix 'OS' - 'Version' - 'snx'.
 | Debian | 11 | Bullseye | debian:bullseye-slim |  |
 | Debian | 10 | Buster | debian:buster-slim |  |
 | Ubuntu | 24.04 LTS | Noble Numbat | ubuntu:noble |  |
-| Ubuntu | 23.10 | Mantic Minotaur | ubuntu:mantic |  |
-| Ubuntu | 23.04 | Lunar Lobster | ubuntu:lunar |  |
 | Ubuntu | 22.04 LTS | Jammy Jellyfish | ubuntu:jammy |  |
 | Ubuntu | 20.04 LTS | Focal Fossa | ubuntu:focal |  |
 | Ubuntu | 18.04 LTS | Bionic Beaver |  ubuntu:bionic |  |

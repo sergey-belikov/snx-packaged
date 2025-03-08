@@ -5,16 +5,14 @@ cdir="$(dirname $0)"
 list=$(cat <<- EOF
 #image	tag	os	version
 
-test/snx	sid-slim	debian	NA
-test/snx	testing-slim	debian	NA
+test/snx	sid-slim	debian	99
+test/snx	testing-slim	debian	98
 test/snx	trixie-slim	debian	13
 test/snx	bookworm-slim	debian	12
 test/snx	bullseye-slim	debian	11
 test/snx	buster-slim	debian	10
 
 test/snx	noble	ubuntu	24.04
-test/snx	mantic	ubuntu	23.10
-test/snx	lunar	ubuntu	23.04
 test/snx	jammy	ubuntu	22.04
 test/snx	focal	ubuntu	20.04
 test/snx	bionic	ubuntu	18.04
@@ -32,12 +30,13 @@ do
     echo "FROM ${os}:${tag}" > ${dockerfile}
     cat ${cdir}/test/Dockerfile.template >>${dockerfile}
     cd ${cdir}
-    docker build -t ${image}:${tag} --build-arg BUILD_TIMESTAMP=$(date -uIs) -f ${cdir}/${dockerfile} .
+    docker build --no-cache -t ${image}:${tag} --build-arg BUILD_TIMESTAMP=$(date -uIs) -f ${cdir}/${dockerfile} .
     res=$?
     echo "== Result: ${image}:${tag} (${os}.${version}) = ${res}"
     docker rmi ${image}:${tag}
 done <<< $list
 ) 2>&1 | tee _test.all.log
+
 echo ""
 grep '==' _test.all.log
 echo ""
